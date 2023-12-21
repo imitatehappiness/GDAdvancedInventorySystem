@@ -7,9 +7,10 @@ This project represents a functional system for efficient inventory management i
 2. Drag and Drop
 3. Item equipment
 4. Storage of items in chest
-5. Splitting items for stacks
-6. Quick retrieval from the chest
-7. Save items data
+5. Discarding items from inventory and chest
+6. Splitting items for stacks
+7. Quick retrieval from the chest
+8. Save game data
 
 # Storage of Game Data
 Initially, data is stored in [xlsx files](https://github.com/imitatehappiness/GDAdvancedInventorySystem/tree/main/converter/data) for ease of filling. To convert them into json files, [scripts](https://github.com/imitatehappiness/GDAdvancedInventorySystem/tree/main/converter) are utilized. 
@@ -34,4 +35,5 @@ python src/chest_data_to_json.py data/chest_data.xlsx result/chest_data.json
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/imitatehappiness/GDAdvancedInventorySystem/blob/main/LICENSE) file for details.
 
 ## Demonatration
-![preview](https://github.com/imitatehappiness/GDAdvancedInventorySystem/assets/79199956/70ea35c2-2479-44ae-867d-9f468f315264)
+![preview1](https://github.com/imitatehappiness/GDAdvancedInventorySystem/assets/79199956/f0a12186-6a58-4972-a4db-23e541145eca)
+![preview2](https://github.com/imitatehappiness/GDAdvancedInventorySystem/assets/79199956/d998512d-7d31-4b36-b90e-d8b8c6efaaf8)
