@@ -1,0 +1,4 @@
+python src/item_data_to_json.py data/item_data.xlsx result/item_data.json
+python src/equipment_data_to_json.py data/equipment_data.xlsx result/equipment_data.json
+python src/inv_data_to_json.py  data/inv_data.xlsx result/inv_data.json
+python src/chest_data_to_json.py data/chest_data.xlsx result/chest_data.json

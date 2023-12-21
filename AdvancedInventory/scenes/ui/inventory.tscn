@@ -1,0 +1,109 @@
+[gd_scene load_steps=6 format=3 uid="uid://bts4ermudrfl6"]
+
+[ext_resource type="Texture2D" uid="uid://0vjkuob4o5vd" path="res://assets/ui/character_sheet/background.png" id="1_50l20"]
+[ext_resource type="Script" path="res://scenes/ui/inventory.gd" id="1_ckokr"]
+[ext_resource type="FontFile" uid="uid://c1knuv4eguygh" path="res://assets/font/main.otf" id="3_uqyu4"]
+[ext_resource type="Texture2D" uid="uid://cvr30dq3434y8" path="res://assets/ui/character_sheet/inventory_drop_item_bg_icon (2).png" id="5_hmvgy"]
+[ext_resource type="PackedScene" uid="uid://bg47qms4btqps" path="res://scenes/ui/templates/inventory_slot.tscn" id="5_wgy3s"]
+
+[node name="Inventory" type="Control" groups=["inventory"]]
+custom_minimum_size = Vector2(680, 690)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -290.0
+offset_top = -345.0
+offset_right = 290.0
+offset_bottom = 345.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_ckokr")
+
+[node name="Background" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_50l20")
+
+[node name="M" type="MarginContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="V" type="VBoxContainer" parent="Background/M"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Header" type="HBoxContainer" parent="Background/M/V"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="TitleBackground" type="TextureRect" parent="Background/M/V/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Background/M/V/Header/TitleBackground"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_uqyu4")
+theme_override_font_sizes/font_size = 28
+text = "Inventory"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Background/M/V"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="Background/M/V/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 20
+columns = 6
+
+[node name="H" type="HBoxContainer" parent="Background/M/V"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/M/V/H"]
+layout_mode = 2
+
+[node name="DropSlot" parent="Background/M/V/H/VBoxContainer" instance=ExtResource("5_wgy3s")]
+layout_mode = 2
+
+[node name="Icon" parent="Background/M/V/H/VBoxContainer/DropSlot" index="0"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 4.0
+offset_bottom = 4.0
+scale = Vector2(0.871153, 0.869159)
+texture = ExtResource("5_hmvgy")
+
+[node name="Label" type="Label" parent="Background/M/V/H/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "DropSLOT"
+horizontal_alignment = 1
+
+[editable path="Background/M/V/H/VBoxContainer/DropSlot"]

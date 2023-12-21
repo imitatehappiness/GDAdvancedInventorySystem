@@ -1,0 +1,110 @@
+[gd_scene load_steps=7 format=3 uid="uid://bysu47lnoqtca"]
+
+[ext_resource type="Script" path="res://scenes/ui/chest.gd" id="1_u0xrj"]
+[ext_resource type="Texture2D" uid="uid://0vjkuob4o5vd" path="res://assets/ui/character_sheet/background.png" id="2_u1fst"]
+[ext_resource type="Texture2D" uid="uid://3h3qm0ew036l" path="res://assets/ui/character_sheet/inventory_name_bg.png" id="3_jjs2f"]
+[ext_resource type="FontFile" uid="uid://c1knuv4eguygh" path="res://assets/font/main.otf" id="4_aheii"]
+[ext_resource type="PackedScene" uid="uid://bg47qms4btqps" path="res://scenes/ui/templates/inventory_slot.tscn" id="5_bi3ij"]
+[ext_resource type="Texture2D" uid="uid://wwp88mebm7nh" path="res://assets/ui/character_sheet/inventory_drop_item_bg_icon.png" id="6_4ly7r"]
+
+[node name="Chest" type="Control"]
+custom_minimum_size = Vector2(580, 400)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -290.0
+offset_top = -386.0
+offset_right = 290.0
+offset_bottom = 116.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_u0xrj")
+
+[node name="Background" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_u1fst")
+
+[node name="M" type="MarginContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="V" type="VBoxContainer" parent="Background/M"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Header" type="HBoxContainer" parent="Background/M/V"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="TitleBackground" type="TextureRect" parent="Background/M/V/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_jjs2f")
+
+[node name="Label" type="Label" parent="Background/M/V/Header/TitleBackground"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_aheii")
+theme_override_font_sizes/font_size = 28
+text = "Chest"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Background/M/V/Header"]
+layout_mode = 2
+text = "Close"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Background/M/V"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="Background/M/V/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 20
+columns = 5
+
+[node name="H" type="HBoxContainer" parent="Background/M/V"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="DropSlot" parent="Background/M/V/H" instance=ExtResource("5_bi3ij")]
+layout_mode = 2
+
+[node name="Icon" parent="Background/M/V/H/DropSlot" index="1"]
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 3.0
+offset_bottom = 2.0
+texture = ExtResource("6_4ly7r")
+
+[connection signal="pressed" from="Background/M/V/Header/Button" to="." method="_on_button_pressed"]
+
+[editable path="Background/M/V/H/DropSlot"]

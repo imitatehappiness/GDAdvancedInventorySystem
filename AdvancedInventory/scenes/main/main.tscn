@@ -1,0 +1,153 @@
+[gd_scene load_steps=8 format=3 uid="uid://k4j8sr4dlxh3"]
+
+[ext_resource type="Script" path="res://scenes/main/main.gd" id="1_rh1fn"]
+[ext_resource type="PackedScene" uid="uid://x7ujg3s342mi" path="res://scenes/ui/character_sheet.tscn" id="1_v8c06"]
+[ext_resource type="PackedScene" uid="uid://2u6bgi8pnbpn" path="res://scenes/objects/chest.tscn" id="2_7l0cl"]
+[ext_resource type="PackedScene" uid="uid://bts4ermudrfl6" path="res://scenes/ui/inventory.tscn" id="2_q2x0g"]
+[ext_resource type="PackedScene" uid="uid://b1i3bh3awnsme" path="res://scenes/character/character.tscn" id="2_ti2t8"]
+[ext_resource type="Script" path="res://scenes/ui/ui.gd" id="2_y82vt"]
+[ext_resource type="PackedScene" uid="uid://cf4x5wlyjhgc4" path="res://scenes/items/item.tscn" id="7_tm8cw"]
+
+[node name="Main" type="Node2D"]
+position = Vector2(-2, -9)
+script = ExtResource("1_rh1fn")
+metadata/_edit_horizontal_guides_ = [23.0]
+metadata/_edit_vertical_guides_ = [1853.0]
+
+[node name="Info" type="Label" parent="."]
+offset_left = 933.0
+offset_top = 869.0
+offset_right = 1871.0
+offset_bottom = 992.0
+theme_override_font_sizes/font_size = 28
+text = "Character Move: arrows
+Open/Close Inventory: \"I\"
+Split items in the intventory: \"Shift\" + Drag And Drop
+Quick collection from the chest: \"Shift\" + \"Right CLick\"
+"
+horizontal_alignment = 2
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 0
+script = ExtResource("2_y82vt")
+
+[node name="Control" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -549.0
+offset_top = -63.0
+offset_right = -549.0
+offset_bottom = -63.0
+scale = Vector2(1.0003, 1.05244)
+
+[node name="ColorRect" type="ColorRect" parent="UI/Control"]
+layout_mode = 0
+offset_left = 554.0
+offset_top = 87.0
+offset_right = 1879.0
+offset_bottom = 857.0
+color = Color(0.14902, 0.164706, 0.156863, 1)
+
+[node name="SaveButton" type="Button" parent="UI/Control"]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 0
+offset_left = 2024.39
+offset_top = 812.398
+offset_right = 2418.39
+offset_bottom = 862.398
+theme_override_font_sizes/font_size = 42
+text = "SAVE DATA"
+
+[node name="Inventory" parent="UI/Control" instance=ExtResource("2_q2x0g")]
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 1183.0
+offset_top = 103.0
+offset_right = 1863.0
+offset_bottom = 841.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="CharacterSheet" parent="UI/Control" instance=ExtResource("1_v8c06")]
+custom_minimum_size = Vector2(680, 690)
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 554.0
+offset_top = 93.0
+offset_right = 1234.0
+offset_bottom = 783.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Background" parent="UI/Control/CharacterSheet" index="0"]
+offset_left = 20.0
+offset_top = 9.0
+offset_right = 620.0
+offset_bottom = 748.0
+
+[node name="CharacterStats" type="Label" parent="UI/Control"]
+layout_mode = 0
+offset_left = 560.832
+offset_top = 868.458
+offset_right = 655.832
+offset_bottom = 901.458
+theme_override_font_sizes/font_size = 24
+text = "stats:"
+
+[node name="Character" parent="." groups=["character"] instance=ExtResource("2_ti2t8")]
+z_index = 3
+position = Vector2(1447, 615)
+
+[node name="Objects" type="Node2D" parent="."]
+position = Vector2(1545, 580)
+
+[node name="Loot" type="Node2D" parent="Objects"]
+z_index = 1
+position = Vector2(-37, 74)
+
+[node name="Item" parent="Objects/Loot" instance=ExtResource("7_tm8cw")]
+position = Vector2(89, -29)
+
+[node name="Item2" parent="Objects/Loot" instance=ExtResource("7_tm8cw")]
+position = Vector2(-13, 69)
+id = 10007
+
+[node name="Chest" parent="Objects" instance=ExtResource("2_7l0cl")]
+position = Vector2(-168, -184)
+
+[node name="Chest" parent="Objects/Chest" index="2"]
+anchors_preset = 1
+anchor_bottom = 0.0
+offset_left = 34.0
+offset_top = -525.0
+offset_right = 614.0
+offset_bottom = 165.0
+grow_vertical = 1
+
+[node name="Chest2" parent="Objects" instance=ExtResource("2_7l0cl")]
+position = Vector2(118, -101)
+id = 1
+
+[node name="Chest" parent="Objects/Chest2" index="2"]
+anchors_preset = 1
+anchor_bottom = 0.0
+offset_left = 34.0
+offset_top = -525.0
+offset_right = 614.0
+offset_bottom = 165.0
+grow_vertical = 1
+
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
+[connection signal="pressed" from="UI/Control/SaveButton" to="." method="_on_save_button_pressed"]
+
+[editable path="UI/Control/Inventory"]
+[editable path="UI/Control/Inventory/Background/M/V/H/VBoxContainer/DropSlot"]
+[editable path="UI/Control/CharacterSheet"]
+[editable path="Character"]
+[editable path="Objects/Chest"]
+[editable path="Objects/Chest2"]

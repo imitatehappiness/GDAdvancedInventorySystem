@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://cf4x5wlyjhgc4"]
+
+[ext_resource type="Script" path="res://scenes/items/item.gd" id="1_h1c3g"]
+[ext_resource type="Texture2D" uid="uid://b3af3246mgsef" path="res://assets/ui/icon_items/Axe.png" id="1_nlvki"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x3igi"]
+radius = 35.0571
+
+[node name="Item" type="Area2D" groups=["item_loot"]]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_h1c3g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_nlvki")
+
+[node name="CollectArea" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_x3igi")
+
+[node name="CollectLabel" type="Label" parent="."]
+visible = false
+offset_left = -63.0
+offset_top = -37.0
+offset_right = 82.0
+offset_bottom = -22.0
+theme_override_font_sizes/font_size = 14
+text = "Press \"A\" to collect"
+
+[node name="Stack" type="Label" parent="."]
+offset_left = 10.0
+offset_top = -23.0
+offset_right = 50.0
+offset_bottom = -1.0
+theme_override_colors/font_color = Color(0.827451, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "5"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

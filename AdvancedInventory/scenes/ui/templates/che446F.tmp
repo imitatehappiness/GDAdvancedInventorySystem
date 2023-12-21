@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://bla7hjqk6ujru"]
+
+[ext_resource type="Texture2D" uid="uid://ciuupykuri8cu" path="res://assets/ui/character_sheet/inventory_frame.png" id="1_inmhh"]
+[ext_resource type="Script" path="res://scenes/ui/templates/chest_slot.gd" id="2_n5eci"]
+[ext_resource type="FontFile" uid="uid://c1knuv4eguygh" path="res://assets/font/main.otf" id="3_57l3m"]
+
+[node name="Inv1" type="TextureRect"]
+custom_minimum_size = Vector2(95, 95)
+texture = ExtResource("1_inmhh")
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_n5eci")
+
+[node name="Stack" type="Label" parent="."]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 69.0
+offset_right = 96.0
+offset_bottom = 102.0
+theme_override_colors/font_color = Color(0.827451, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_57l3m")
+theme_override_font_sizes/font_size = 36
+text = "
+"
+horizontal_alignment = 2
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 100.0
+
+[connection signal="pressed" from="TextureButton" to="Icon" method="_on_texture_button_pressed"]

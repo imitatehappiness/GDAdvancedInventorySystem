@@ -1,0 +1,14 @@
+{
+  "Inv1": {
+    "Item": 10002,
+    "Stack": 2
+  },
+  "Inv2": {
+    "Item": 10003,
+    "Stack": null
+  },
+  "Inv3": {
+    "Item": 10004,
+    "Stack": 6
+  }
+}

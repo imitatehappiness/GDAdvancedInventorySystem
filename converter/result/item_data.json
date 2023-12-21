@@ -1,0 +1,26 @@
+{
+  "10001": {
+    "Name": "Old Sword",
+    "Category": "Weapon",
+    "Type": "Sword",
+    "EquipmentSlot": "MainHand",
+    "Stackable": false,
+    "Attack": 20,
+    "Defense": null,
+    "Health": null,
+    "Mana": null,
+    "FoodSatiation": null
+  },
+  "10002": {
+    "Name": "Common Sword",
+    "Category": "Weapon",
+    "Type": "Sword",
+    "EquipmentSlot": "MainHand",
+    "Stackable": false,
+    "Attack": 60,
+    "Defense": null,
+    "Health": null,
+    "Mana": null,
+    "FoodSatiation": null
+  }
+}

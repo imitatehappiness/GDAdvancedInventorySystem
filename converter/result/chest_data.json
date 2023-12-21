@@ -1,0 +1,30 @@
+{
+  "0": {
+    "Inv1": {
+      "Item": 10001,
+      "Stack": 1
+    },
+    "Inv2": {
+      "Item": 10002,
+      "Stack": null
+    },
+    "Inv3": {
+      "Item": 10003,
+      "Stack": 3
+    }
+  },
+  "1": {
+    "Inv1": {
+      "Item": 10002,
+      "Stack": 1
+    },
+    "Inv2": {
+      "Item": 10003,
+      "Stack": null
+    },
+    "Inv3": {
+      "Item": 10004,
+      "Stack": 3
+    }
+  }
+}
