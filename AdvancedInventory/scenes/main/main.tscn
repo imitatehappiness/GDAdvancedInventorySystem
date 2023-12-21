@@ -34,9 +34,9 @@ script = ExtResource("2_y82vt")
 [node name="Control" type="Control" parent="UI"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -549.0
+offset_left = -546.0
 offset_top = -63.0
-offset_right = -549.0
+offset_right = -546.0
 offset_bottom = -63.0
 scale = Vector2(1.0003, 1.05244)
 

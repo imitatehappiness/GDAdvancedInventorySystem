@@ -1,17 +1,37 @@
 extends Node
 
+var config_path = "res://config.json"
+
 var inv_data = {}
-const path_inv_data_file = "user://inv_data_file.json"
+var path_inv_data_file
 
 var equipment_data = {}
-const path_equipment_data_file = "user://equipment_data_file.json"
+var path_equipment_data_file
 
 signal update_inventory
 
 func _ready():
+	load_data_path()
 	load_inv_data()
 	load_equipment_data()
 
+func load_data_path():
+	var config = FileAccess.open(config_path, FileAccess.READ)
+	if not config:
+		print("Error: Unable to open config for reading.")
+		return
+	var json = JSON.new()
+
+	if json.parse(config.get_as_text()) != OK:
+		print("Error: Failed to parse JSON from inv_data_file.")
+		json.close()
+		return
+
+	config.close()
+	var data = json.get_data()
+	path_inv_data_file = data["inv_data_file_path"]
+	path_equipment_data_file = data["equipment_data_file_path"]
+	
 func load_inv_data():
 	var inv_data_file = FileAccess.open(path_inv_data_file, FileAccess.READ)
 

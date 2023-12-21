@@ -1,0 +1,6 @@
+{
+	"item_data_file_path": "res://data/item_data.json",
+	"inv_data_file_path": "user://inv_data.json",
+	"equipment_data_file_path": "user://equipment_data.json",
+	"chest_data_file_path": "res://data/chest_data.json",	  
+}
