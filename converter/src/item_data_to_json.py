@@ -14,7 +14,7 @@ def to_json(input_file, output_file):
                 "Type": row["Type"],
                 "EquipmentSlot": row["EquipmentSlot"],
                 "Stackable": False if pd.isna(row["Stackable"]) else row["Stackable"],
-                "Attack": row["Attack"],
+                "Attack": None if pd.isna(row["Attack"]) else row["Attack"],
                 "Defense": None if pd.isna(row["Defense"]) else row["Defense"],
                 "Health": None if pd.isna(row["Health"]) else row["Health"],
                 "Mana": None if pd.isna(row["Mana"]) else row["Mana"],
