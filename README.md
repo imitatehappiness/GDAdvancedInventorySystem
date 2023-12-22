@@ -34,6 +34,6 @@ python src/chest_data_to_json.py data/chest_data.xlsx result/chest_data.json
 # License
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/imitatehappiness/GDAdvancedInventorySystem/blob/main/LICENSE) file for details.
 
-## Demonatration
+## Demonstration
 ![preview1](https://github.com/imitatehappiness/GDAdvancedInventorySystem/assets/79199956/f0a12186-6a58-4972-a4db-23e541145eca)
 ![preview2](https://github.com/imitatehappiness/GDAdvancedInventorySystem/assets/79199956/d998512d-7d31-4b36-b90e-d8b8c6efaaf8)
