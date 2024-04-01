@@ -1,8 +1,8 @@
 # GDAdvancedInventorySystem
 
-![GitHub stars](https://img.shields.io/github/stars/imitatehappiness/GDLastOfTheSurvivors?style=social)
-![GitHub forks](https://img.shields.io/github/forks/imitatehappiness/GDLastOfTheSurvivors?style=social)
-![GitHub watchers](https://img.shields.io/github/watchers/imitatehappiness/GDLastOfTheSurvivors?style=social)
+![GitHub stars](https://img.shields.io/github/stars/imitatehappiness/GDAdvancedInventorySystem?style=social)
+![GitHub forks](https://img.shields.io/github/forks/imitatehappiness/GDAdvancedInventorySystem?style=social)
+![GitHub watchers](https://img.shields.io/github/watchers/imitatehappiness/GDAdvancedInventorySystem?style=social)
 ![GitHub followers](https://img.shields.io/github/followers/imitatehappiness?style=social)
 
 This project represents a functional system for efficient inventory management in gaming applications. The system includes several convenient features that facilitate item collection, management, and usage in the game.
